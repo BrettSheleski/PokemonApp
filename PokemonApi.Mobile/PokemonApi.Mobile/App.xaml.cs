@@ -44,6 +44,8 @@ namespace PokemonApi.Mobile
 
             RegisterViewModels(containerBuilder, thisAssembly);
 
+            containerBuilder.RegisterType<PokemonApi.PokemonService>();
+
             this.Container = containerBuilder.Build(Autofac.Builder.ContainerBuildOptions.None);
 
             autoFacFactory.Container = Container;

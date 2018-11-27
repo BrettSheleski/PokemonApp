@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -17,7 +18,12 @@ namespace PokemonApi.Mobile
 
         public NavigationPage NavigationPage { get; set; }
 
-        public async Task<Page> NavigateToAsync<T>() where T : ViewModelBase
+        public Task<Page> NavigateToAsync<T>() where T : ViewModelBase
+        {
+            return NavigateToAsync<T>(null);
+        }
+
+        public async Task<Page> NavigateToAsync<T>(Action<T> preInitAction) where T : ViewModelBase
         {
             Type vmType = typeof(T);
             Type pageType;
@@ -28,9 +34,11 @@ namespace PokemonApi.Mobile
             }
 
             Page page = (Page)await PageFactory.CreateAsync(pageType);
-            ViewModelBase viewModel = await ViewModelFactory.CreateAsync<T>();
+            T viewModel = await ViewModelFactory.CreateAsync<T>();
 
-            await viewModel.InitializeAsync();
+            preInitAction?.Invoke(viewModel);
+
+            await viewModel.InitializeAsync(CancellationToken.None);
 
             page.BindingContext = viewModel;
 

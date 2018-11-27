@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PokemonApi.Mobile.ViewModels
@@ -22,7 +23,7 @@ namespace PokemonApi.Mobile.ViewModels
             OnPropertyChanged(propertyName);
         }
 
-        public virtual Task InitializeAsync()
+        public virtual Task InitializeAsync(CancellationToken cancellationToken)
         {
             return Task.CompletedTask;
         }
