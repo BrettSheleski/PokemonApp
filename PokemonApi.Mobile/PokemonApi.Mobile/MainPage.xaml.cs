@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 namespace PokemonApi.Mobile
 {
+    [ViewModel(typeof(ViewModels.MainPageViewModel))]
 	public partial class MainPage : ContentPage
 	{
 		public MainPage()
