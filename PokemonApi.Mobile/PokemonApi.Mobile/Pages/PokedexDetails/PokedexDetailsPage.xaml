@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:views="clr-namespace:PokemonApi.Mobile.Views"
+             x:Class="PokemonApi.Mobile.Pages.PokedexDetails.PokedexDetailsPage">
+    <ContentPage Title="Overview">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+            
+            <Label Text="{Binding Pokedex.Name}" FontSize="Large" FontAttributes="Bold"/>
+            <Label Grid.Row="1" Text="{Binding Description}" />
+
+        </Grid>
+    </ContentPage>
+    <ContentPage Title="Region">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Text="{Binding Region.Name}" />
+            <views:SelectableListView Grid.Row="1" ItemsSource="{Binding RegionLocations}" SelectItemCommand="{Binding LocationSelectedCommand}">
+                <views:SelectableListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" />
+                    </DataTemplate>
+                </views:SelectableListView.ItemTemplate>
+            </views:SelectableListView>
+        </Grid>
+        
+    </ContentPage>
+    <ContentPage Title="Species">
+        <views:SelectableListView ItemsSource="{Binding Pokedex.Species}" SelectItemCommand="{Binding SpeciesSelectedCommand}">
+            <views:SelectableListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Species.Name}" />
+                </DataTemplate>
+            </views:SelectableListView.ItemTemplate>
+        </views:SelectableListView>
+    </ContentPage>
+
+</TabbedPage>

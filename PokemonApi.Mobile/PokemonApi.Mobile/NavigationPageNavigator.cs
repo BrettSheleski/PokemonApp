@@ -1,5 +1,4 @@
-﻿using PokemonApi.Mobile.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -38,11 +37,11 @@ namespace PokemonApi.Mobile
 
             preInitAction?.Invoke(viewModel);
 
-            await viewModel.InitializeAsync(CancellationToken.None);
-
             page.BindingContext = viewModel;
 
             await this.NavigationPage.PushAsync(page);
+
+            await viewModel.InitializeAsync(CancellationToken.None);
 
             return page;
         }

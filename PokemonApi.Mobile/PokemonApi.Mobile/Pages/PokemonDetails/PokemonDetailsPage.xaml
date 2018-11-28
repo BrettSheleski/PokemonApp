@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:views="clr-namespace:PokemonApi.Mobile.Views"
+            xmlns:carousel="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+            Title="{Binding Title}"
+             x:Class="PokemonApi.Mobile.Pages.PokemonDetails.PokemonDetailsPage">
+    <ContentPage Title="Overview">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.ColumnSpan="4" FontSize="Large" FontAttributes="Bold" Text="{Binding Pokemon.Name}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Height" HorizontalTextAlignment="End" />
+            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Pokemon.Height}" />
+            <Label Grid.Row="1" Grid.Column="2" Text="Weight" HorizontalTextAlignment="End" />
+            <Label Grid.Row="1" Grid.Column="3" Text="{Binding Pokemon.Weight}" />
+
+            <carousel:CarouselView Grid.Row="2" Grid.ColumnSpan="4" ItemsSource="{Binding Images}">
+                <carousel:CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding .}" />
+                    </DataTemplate>
+                </carousel:CarouselView.ItemTemplate>
+            </carousel:CarouselView>
+
+        </Grid>
+    </ContentPage>
+    <ContentPage Title="Moves">
+        <views:SelectableListView ItemsSource="{Binding Pokemon.Moves}" SelectItemCommand="{Binding SelectMoveCommand}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </views:SelectableListView>
+    </ContentPage>
+    <ContentPage Title="Forms">
+        <views:SelectableListView ItemsSource="{Binding Pokemon.Forms}" SelectItemCommand="{Binding SelectFormCommand}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </views:SelectableListView>
+    </ContentPage>
+    <ContentPage Title="Abilities">
+        <views:SelectableListView ItemsSource="{Binding Pokemon.Abilities}" SelectItemCommand="{Binding SelectAbilityCommand}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </views:SelectableListView>
+    </ContentPage>
+</TabbedPage>
+    

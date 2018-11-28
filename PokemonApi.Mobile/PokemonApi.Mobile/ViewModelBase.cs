@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PokemonApi.Mobile.ViewModels
+namespace PokemonApi.Mobile
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace PokemonApi.Mobile
+namespace PokemonApi.Mobile.Pages.Main
 {
-    [ViewModel(typeof(ViewModels.MainPageViewModel))]
+    [ViewModel(typeof(MainPageViewModel))]
 	public partial class MainPage : ContentPage
 	{
 		public MainPage()

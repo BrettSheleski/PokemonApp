@@ -39,5 +39,31 @@ namespace PokemonApi
             return results;
         }
 
+        public async Task<Move> GetMoveByIdAsync(int moveId, CancellationToken cancellationToken)
+        {
+            string url = $"https://pokeapi.co/api/v2/move/{moveId}/";
+
+            var move = await DeserializeFromWebAsync<Move>(url, cancellationToken);
+
+            return move;
+        }
+
+        public async Task<ResultList<ModelRetriever<Pokedex>>> GetPokedexListAsync(CancellationToken cancellationToken)
+        {
+            string url = "https://pokeapi.co/api/v2/pokedex/";
+
+            var results = await DeserializeFromWebAsync<ResultList<ModelRetriever<Pokedex>>>(url, cancellationToken);
+
+            return results;
+        }
+
+        public async Task<Pokedex> GetPokedexByIdAsync(int id, CancellationToken cancellationToken)
+        {
+            string url = $"https://pokeapi.co/api/v2/pokedex/{id}";
+
+            var pokedex = await DeserializeFromWebAsync<Pokedex>(url, cancellationToken);
+
+            return pokedex;
+        }
     }
 }

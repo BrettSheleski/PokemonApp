@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using PokemonApi.Mobile.ViewModels;
 using Xamarin.Forms;
 
 namespace PokemonApi.Mobile

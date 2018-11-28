@@ -6,7 +6,7 @@ namespace PokemonApi
     public class Pokemon : ModelBase
     {
         private List<AbilityInfo> _abilities;
-        private List<Form> _forms;
+        private List<ModelRetriever<Form>> _forms;
         private List<GameIndex> _gameIndices;
         private List<HeldItemInfo> _heldItems;
         private List<MoveInfo> _moves;
@@ -20,7 +20,7 @@ namespace PokemonApi
         public int BaseExperience { get; set; }
 
         [JsonProperty("forms")]
-        public List<Form> Forms { get => GetList(ref _forms); set => _forms = value; }
+        public List<ModelRetriever<Form>> Forms { get => GetList(ref _forms); set => _forms = value; }
 
         [JsonProperty("game_indices")]
         public List<GameIndex> GameIndices { get => GetList(ref _gameIndices); set => _gameIndices = value; }
@@ -50,7 +50,7 @@ namespace PokemonApi
         public int Order { get; set; }
 
         [JsonProperty("species")]
-        public Species Species { get; set; }
+        public ModelRetriever<PokemonSpecies> Species { get; set; }
 
         [JsonProperty("sprites")]
         public Sprites Sprites { get; set; }

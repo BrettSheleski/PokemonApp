@@ -58,5 +58,55 @@ namespace PokemonApi.Tests
             Assert.IsNotNull(pokemons);
             Assert.IsTrue(pokemons.Length > 10);
         }
+
+        [TestMethod]
+        public async Task GetMoveById()
+        {
+            // Setup
+            int moveId = 1;
+            var service = new PokemonService();
+
+            // act
+            Move move = await service.GetMoveByIdAsync(moveId, CancellationToken.None);
+
+            // verify
+            Assert.IsNotNull(move);
+            Assert.IsTrue(move.Id == moveId);
+            Assert.IsTrue(move.Name == "pound");
+        }
+
+        [TestMethod]
+        public async Task GetPokedexIndex()
+        {
+            // Setup
+            var service = new PokemonService();
+
+            // act
+            ResultList<ModelRetriever<Pokedex>> results = await service.GetPokedexListAsync(CancellationToken.None);
+
+            // verify
+            Assert.IsNotNull(results);
+            Assert.IsTrue(results.Count > 10);
+
+            foreach(var thing in results.Results)
+            {
+                Assert.IsNotNull(thing.Name);
+            }
+        }
+
+        [TestMethod]
+        public async Task GetPokedexById()
+        {
+            // Setup
+            var service = new PokemonService();
+            int id = 1;
+
+            // act
+            Pokedex pokedex = await service.GetPokedexByIdAsync(id, CancellationToken.None);
+
+            // verify
+            Assert.IsNotNull(pokedex);
+            Assert.IsTrue(pokedex.Name == "national");
+        }
     }
 }

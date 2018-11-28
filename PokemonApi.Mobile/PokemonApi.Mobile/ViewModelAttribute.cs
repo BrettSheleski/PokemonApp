@@ -4,7 +4,7 @@ namespace PokemonApi.Mobile
 {
     internal class ViewModelAttribute : Attribute
     {
-        static readonly Type ViewModelBaseType = typeof(ViewModels.ViewModelBase);
+        static readonly Type ViewModelBaseType = typeof(ViewModelBase);
 
         public ViewModelAttribute(Type vmType)
         {

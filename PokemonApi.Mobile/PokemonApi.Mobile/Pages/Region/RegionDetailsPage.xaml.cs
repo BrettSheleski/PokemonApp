@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace PokemonApi.Mobile.Pokedex
+namespace PokemonApi.Mobile.Pages.Region
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-    [ViewModel(typeof(PokedexViewModel))]
-	public partial class PokedexPage : ContentPage
+    [ViewModel(typeof(RegionDetailsViewModel))]
+	public partial class RegionDetailsPage : ContentPage
 	{
-		public PokedexPage ()
+		public RegionDetailsPage ()
 		{
 			InitializeComponent ();
 		}

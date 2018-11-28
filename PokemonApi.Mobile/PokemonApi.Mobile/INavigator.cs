@@ -1,5 +1,4 @@
-﻿using PokemonApi.Mobile.ViewModels;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
-using PokemonApi.Mobile.ViewModels;
 
 namespace PokemonApi.Mobile
 {

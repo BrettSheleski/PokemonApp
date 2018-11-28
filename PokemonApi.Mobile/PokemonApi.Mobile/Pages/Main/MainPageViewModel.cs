@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace PokemonApi.Mobile.ViewModels
+namespace PokemonApi.Mobile.Pages.Main
 {
     public class MainPageViewModel : ViewModelBase
     {
@@ -13,6 +13,12 @@ namespace PokemonApi.Mobile.ViewModels
             this.Navigator = navigator;
 
             this.ViewPokemonIndexCommand = new AsyncCommand(ViewPokemonIndexAsync);
+            this.ViewPokedexIndexCommand = new AsyncCommand(ViewPokedexIndexAsync);
+        }
+
+        private Task ViewPokedexIndexAsync()
+        {
+            return this.Navigator.NavigateToAsync<PokedexIndex.PokedexIndexViewModel>();
         }
 
         private Task ViewPokemonIndexAsync()
@@ -22,13 +28,8 @@ namespace PokemonApi.Mobile.ViewModels
 
         public INavigator Navigator { get; }
         public Command ViewPokemonIndexCommand { get; }
+        public AsyncCommand ViewPokedexIndexCommand { get; }
     }
 
-    public class AsyncCommand : Command
-    {
-        public AsyncCommand(Func<Task> asyncFunc) : base(async () => await asyncFunc())
-        {
-
-        }
-    }
+    
 }

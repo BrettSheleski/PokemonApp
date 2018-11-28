@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace PokemonApi.Mobile.PokemonIndex
+namespace PokemonApi.Mobile.Pages.PokemonDetails
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-    [ViewModel(typeof(PokemonIndexViewModel))]
-	public partial class PokemonIndexPage : ContentPage
+    [ViewModel(typeof(PokemonDetailsViewModel))]
+	public partial class PokemonDetailsPage : TabbedPage
 	{
-		public PokemonIndexPage ()
+		public PokemonDetailsPage ()
 		{
 			InitializeComponent ();
 		}

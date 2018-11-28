@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace PokemonApi
 {
@@ -27,5 +28,17 @@ namespace PokemonApi
 
         [JsonProperty("front_shiny_female")]
         public string FrontShinyFemale { get; set; }
+
+        public IEnumerable<string> AsEnumerable()
+        {
+            yield return BackDefault;
+            yield return BackFemale;
+            yield return BackShiny;
+            yield return BackShinyFemale;
+            yield return FrontDefault;
+            yield return FrontFemale;
+            yield return FrontShiny;
+            yield return FrontShinyFemale;
+        }
     }
 }

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PokemonApi.Mobile"
-             x:Class="PokemonApi.Mobile.MainPage">
+             x:Class="PokemonApi.Mobile.Pages.Main.MainPage">
 
     <Grid Padding="15">
         <Grid.ColumnDefinitions>
@@ -14,7 +14,9 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Button Text="Pokemon Index" HorizontalOptions="Fill" VerticalOptions="Fill" Command="{Binding ViewPokemonIndexCommand}" />
+        <Button Grid.Row="0" Grid.Column="0" Text="Pokemon Index" HorizontalOptions="Fill" VerticalOptions="Fill" Command="{Binding ViewPokemonIndexCommand}" />
+
+        <Button Grid.Row="0" Grid.Column="1" Text="Pokedex Index" HorizontalOptions="Fill" VerticalOptions="Fill" Command="{Binding ViewPokedexIndexCommand}" />
 
     </Grid>
 
