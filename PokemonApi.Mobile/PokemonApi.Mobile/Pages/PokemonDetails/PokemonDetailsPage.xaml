@@ -37,31 +37,53 @@
         </Grid>
     </ContentPage>
     <ContentPage Title="Moves">
-        <views:SelectableListView ItemsSource="{Binding Pokemon.Moves}" SelectItemCommand="{Binding SelectMoveCommand}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Name}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </views:SelectableListView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Text="Moves" FontSize="Large" />
+            <views:SelectableListView Grid.Row="1" ItemsSource="{Binding Pokemon.Moves}" SelectItemCommand="{Binding SelectMoveCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Retriever.Name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </views:SelectableListView>
+        </Grid>
+        
     </ContentPage>
     <ContentPage Title="Forms">
-        <views:SelectableListView ItemsSource="{Binding Pokemon.Forms}" SelectItemCommand="{Binding SelectFormCommand}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Name}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </views:SelectableListView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Text="Forms" FontSize="Large" />
+            <views:SelectableListView Grid.Row="1" ItemsSource="{Binding Pokemon.Forms}" SelectItemCommand="{Binding SelectFormCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </views:SelectableListView>
+        </Grid>
     </ContentPage>
     <ContentPage Title="Abilities">
-        <views:SelectableListView ItemsSource="{Binding Pokemon.Abilities}" SelectItemCommand="{Binding SelectAbilityCommand}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Name}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </views:SelectableListView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Text="Abilities" FontSize="Large" />
+            <views:SelectableListView Grid.Row="1" ItemsSource="{Binding Pokemon.Abilities}" SelectItemCommand="{Binding SelectAbilityCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Retriever.Name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </views:SelectableListView>
+        </Grid>
     </ContentPage>
 </TabbedPage>
     
